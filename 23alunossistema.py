@@ -49,6 +49,9 @@ while True:
         continuar= str(input("Deseja continuar? S/N: ")).lower()
         if continuar == "n":
             break
+
+result= media_turma(quantidade_cadastros,soma) 
+ 
 # função pra calcular as situações dos alunos
 def situacao_turma(notas):
     # uma lista p ir armazenando as situações 
@@ -78,11 +81,21 @@ infos["situacoes"] = situacao
   
 maior = max(infos["notas"])
 menor = min(infos["notas"])
-result= media_turma(quantidade_cadastros,soma)   
+indice_maior = infos["notas"].index(maior)
+indice_menor = infos["notas"].index(menor)
+
+
+  
 
 print (f"\nQuantidade de cadastros: {quantidade_cadastros}") 
 print (f"Média da turma: {result:.1f}")
-print (f"Maior nota da turma: {maior}\nMenor nota da turma: {menor}")
+print(f"""
+       Aluno com maior nota: {infos["nomes"][indice_maior]}
+       Nota: {maior}""")
+print(f"""
+       Aluno com menor nota: {infos["nomes"][indice_menor]}
+       Nota: {menor}
+       """)
 print (f"Aprovados: {aprov}\nRecuperação: {recup}\nReprovados: {reprov}\n")
 
 mostrar_dados= input("Deseja exibir os dados dos alunos? S/N: \n").lower()
